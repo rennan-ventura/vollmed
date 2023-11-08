@@ -1,5 +1,6 @@
 package com.med.voll.api.controller;
 
+import com.med.voll.api.paciente.request.DadosAtualizacaoPaciente;
 import com.med.voll.api.paciente.request.DadosCadastroPaciente;
 import com.med.voll.api.paciente.response.DadosListagemPaciente;
 import com.med.voll.api.paciente.Paciente;
@@ -27,6 +28,14 @@ public class PacienteController {
     @Transactional
     public void cadastro(@RequestBody @Valid DadosCadastroPaciente dados) {
         repository.save(new Paciente(dados));
+    }
+
+    @PutMapping
+    @Transactional
+    public void atualizar(@RequestBody @Valid DadosAtualizacaoPaciente dados) {
+        var paciente = repository.getReferenceById(dados.id());
+        paciente.atualizarInformacoes(dados);
+
     }
 
 }
