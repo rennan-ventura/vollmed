@@ -1,6 +1,8 @@
 package com.med.voll.api.medico;
 
 import com.med.voll.api.endereco.Endereco;
+import com.med.voll.api.medico.request.DadosAtualizacaoMedico;
+import com.med.voll.api.medico.request.DadosCadastroMedico;
 import jakarta.persistence.*;
 import lombok.*;
 
