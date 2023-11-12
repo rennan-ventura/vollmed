@@ -1,6 +1,6 @@
-package com.med.voll.api.paciente.response;
+package com.med.voll.api.domain.paciente.response;
 
-import com.med.voll.api.paciente.Paciente;
+import com.med.voll.api.domain.paciente.Paciente;
 
 public record DadosListagemPaciente(
         Long id,

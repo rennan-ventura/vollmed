@@ -1,8 +1,8 @@
-package com.med.voll.api.medico.response;
+package com.med.voll.api.domain.medico.response;
 
-import com.med.voll.api.endereco.Endereco;
-import com.med.voll.api.medico.EspecialidadeEnum;
-import com.med.voll.api.medico.Medico;
+import com.med.voll.api.domain.endereco.Endereco;
+import com.med.voll.api.domain.medico.EspecialidadeEnum;
+import com.med.voll.api.domain.medico.Medico;
 
 public record DadosDetalhamentoMedico(
         Long id,

@@ -1,6 +1,6 @@
-package com.med.voll.api.paciente.request;
+package com.med.voll.api.domain.paciente.request;
 
-import com.med.voll.api.endereco.DadosEndereco;
+import com.med.voll.api.domain.endereco.DadosEndereco;
 import jakarta.validation.Valid;
 
 
