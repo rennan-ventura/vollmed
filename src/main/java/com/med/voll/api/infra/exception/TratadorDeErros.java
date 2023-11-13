@@ -23,6 +23,8 @@ public class TratadorDeErros {
         return ResponseEntity.badRequest().body(erros.stream().map(DadosErroValidacao::new).toList());
     }
 
+    
+
     private record DadosErroValidacao(String campo, String mensagem) {
         public DadosErroValidacao(FieldError erro){
             this(erro.getField(), erro.getDefaultMessage());
