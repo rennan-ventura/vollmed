@@ -2,6 +2,7 @@ package com.med.voll.api.domain.consulta;
 
 import com.med.voll.api.domain.ValidacaoException;
 import com.med.voll.api.domain.consulta.request.DadosAgendamentoConsulta;
+import com.med.voll.api.domain.consulta.request.DadosCancelamentoConsulta;
 import com.med.voll.api.domain.medico.Medico;
 import com.med.voll.api.domain.medico.MedicoRepository;
 import com.med.voll.api.domain.paciente.PacienteRepository;
@@ -31,7 +32,7 @@ public class AgendaDeConsultas {
 
         var paciente = pacienteRepository.getReferenceById(dados.idPaciente());
         var medico = escolherMedico(dados);
-        var consulta = new Consulta(null, medico, paciente, dados.data());
+        var consulta = new Consulta(null, medico, paciente, dados.data(), null);
         consultaRepository.save(consulta);
     }
 
@@ -47,4 +48,12 @@ public class AgendaDeConsultas {
 
     }
 
+    public void cancelar(DadosCancelamentoConsulta dados) {
+        if(!consultaRepository.existsById(dados.idConsulta())){
+            throw new ValidacaoException("A consulta não existe");
+        }
+
+        var consulta = consultaRepository.getReferenceById(dados.idConsulta());
+        consulta.cancelar(dados.motivo());
+    }
 }
